@@ -1,26 +1,19 @@
-import React from 'react'
 
-function Image() {
+
+import React,{useState} from 'react';
+import CancelIcon from '@material-ui/icons/Cancel';
+
+ function Image({imageSource,handleDelete,index}) {
+
+let [isHovering,setIsHovering]  =useState(-1)
+
     return (
-       <>
-       <div className="image-section-outer-wrapper" onMouseEnter={(e)=>setIsHowering(index) } onMouseLeave={(e)=>setIsHowering(-1)}>
+        <div className="image-outer-cover"  onMouseEnter={()=>setIsHovering(index)} onMouseLeave={()=>setIsHovering(-1)} >
 
-<CancelIcon className={`float-cut-btn ${isHowering==index?null:'hidden-cut'}`}  onClick={(e)=>
- {
- let virtualArray=  ImgSrc.filter((element,mic)=>mic!=e.target.id);
- setImageSrc([...virtualArray])
- }
- } />
-
-
- <img src={data} key={index} id={index} 
-  />
-
-  </div>
-
-
-       </>
+        <img src={imageSource}/>
+         <CancelIcon className={`cancel-float-btn ${isHovering==index?null:'hide-close-btn'} `} onClick={()=>handleDelete(index)}/>
+        </div>
     )
 }
 
-export default Image
+export default Image;

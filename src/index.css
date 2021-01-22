@@ -1,47 +1,53 @@
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  color: #334d47;
 }
 
-.images-row-wrapper {
-  width: 80vw;
+.all-content-cover {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 30px auto;
-}
-
-.images-row-wrapper img {
-  width: 30%;
-  margin: 8px 8px;
-  width: 90%;
-  border-radius: 14px;
-}
-
-.toggle-btn {
-  background-color: #334d47;
-  color: white;
-  margin: 1.3rem 0;
-  padding: 8px 12px;
-  font-size: 1.3rem;
-  outline: none;
-  border: none;
-  border-radius: 18px;
-  cursor: pointer;
-  color: yellow;
-}
-
-.over-all-content-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.input-URL {
+.image-outer-cover {
+  width: 140px;
+  height: 240px;
+  position: relative;
+  margin: 20px 10px;
+}
+
+.cancel-float-btn {
+  position: absolute;
+  top: 6%;
+  right: 5%;
+  opacity: 0.4;
+  color: rgb(192, 192, 111);
+}
+
+.hide-close-btn {
+  opacity: 0;
+}
+
+.cancel-float-btn:hover {
+  opacity: 1;
+}
+
+.image-outer-cover img {
+  width: 140px;
+  border-radius: 14px;
+}
+
+.input-section-wrapper {
+  width: 80vh;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.input-section-wrapper input {
   padding: 0.375rem 0.75rem;
+  width: 60%;
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
@@ -51,8 +57,7 @@
   border-radius: 0.25rem;
   margin-right: 6px;
 }
-
-.input-btn {
+.input-section-wrapper button {
   padding: 0.375rem 0.75rem;
   color: #fff;
   background-color: #7952b3;
@@ -65,29 +70,8 @@
   margin-left: 6px;
 }
 
-.image-section-outer-wrapper {
-  position: relative;
-  width: 30%;
-  color: aliceblue !important;
-}
-
-.float-cut-btn {
-  position: absolute;
-  right: 16%;
-  top: 4%;
-  color: aliceblue !important;
-  cursor: pointer;
-  opacity: 0.6;
-}
-
-.float-cut-btn:hover {
-  opacity: 1;
-}
-
-.disabled-opacity {
-  opacity: 0.4;
-}
-
-.hidden-cut {
-  opacity: 0;
+.Image-map-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
