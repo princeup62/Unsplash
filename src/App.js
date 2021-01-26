@@ -10,7 +10,6 @@ function App() {
    
       <Images /> 
     
-   
     </div>
   )
 }
