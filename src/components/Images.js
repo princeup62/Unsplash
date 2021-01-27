@@ -5,6 +5,8 @@ import Image from './Image';
 
  function Images() {
 
+
+  console.log(process.env.REACT_APP_UNSPLASH_KEY);
   const [ImgSrc,setImageSrc]=useState([]);
 
   const [inputData,setInputData]=useState("");
@@ -16,7 +18,7 @@ import Image from './Image';
 console.log(inputRef);
 
 inputRef.current.focus();
-axios.get('https://api.unsplash.com/photos/?client_id=iGcQJSuPPSJt4UBbnoPi5lE8op8FM88oUeEn8mdxGkM')
+axios.get(`${process.env.REACT_APP_UNSPLASH_URL}/?client_id=${process.env.REACT_APP_UNSPLASH_KEY}&page=89`)
 .then((res)=>setImageSrc(res.data))
   },[]);
 
@@ -40,7 +42,7 @@ axios.get('https://api.unsplash.com/photos/?client_id=iGcQJSuPPSJt4UBbnoPi5lE8op
 
   function handleDelete(index)
   {
-     let virtualArray= ImgSrc.filter((element,mic)=>mic!=index);
+     let virtualArray= ImgSrc.filter((element,mic)=>mic!==index);
     setImageSrc([...virtualArray]);
   }
 

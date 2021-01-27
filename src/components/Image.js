@@ -11,8 +11,8 @@ let [isHovering,setIsHovering]  =useState(-1)
         <div className="image-outer-cover"  onMouseEnter={()=>setIsHovering(index)}
          onMouseLeave={()=>setIsHovering(-1)} >
 
-        <img src={imageSource}/>
-         <CancelIcon className={`cancel-float-btn ${isHovering==index?null:'hide-close-btn'} `} 
+        <img src={imageSource} alt=""/>
+         <CancelIcon className={`cancel-float-btn ${isHovering===index?null:'hide-close-btn'} `} 
          onClick={()=>handleDelete(index)}/>
         </div>
     )
