@@ -2,14 +2,20 @@
 import axios from 'axios';
 import React,{useEffect, useState,useRef} from 'react'
 import Image from './Image';
+import useFetchImage from './utils/hooks/useFetchImage';
+import useScroll from './utils/hooks/useScroll';
 
  function Images() {
 
 
   console.log(process.env.REACT_APP_UNSPLASH_KEY);
-  const [ImgSrc,setImageSrc]=useState([]);
+  // const [ImgSrc,setImageSrc]=useState([]);
+
+  const [ImgSrc,setImageSrc] =useFetchImage();
 
   const [inputData,setInputData]=useState("");
+
+  const scrollPosition =useScroll();
 
   useEffect (()=>{
  
@@ -18,8 +24,8 @@ import Image from './Image';
 console.log(inputRef);
 
 inputRef.current.focus();
-axios.get(`${process.env.REACT_APP_UNSPLASH_URL}/?client_id=${process.env.REACT_APP_UNSPLASH_KEY}&page=89`)
-.then((res)=>setImageSrc(res.data))
+// axios.get(`${process.env.REACT_APP_UNSPLASH_URL}/?client_id=${process.env.REACT_APP_UNSPLASH_KEY}&page=1`)
+// .then((res)=>setImageSrc(res.data))
   },[]);
 
   const inputRef = useRef(null);
@@ -52,6 +58,8 @@ axios.get(`${process.env.REACT_APP_UNSPLASH_URL}/?client_id=${process.env.REACT_
 
   <>
     <section className="input-section-wrapper">
+
+    {scrollPosition}
 
     <input type="text"
      ref={inputRef}
