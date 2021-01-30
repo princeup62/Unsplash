@@ -11,11 +11,14 @@ import useScroll from './utils/hooks/useScroll';
   console.log(process.env.REACT_APP_UNSPLASH_KEY);
   // const [ImgSrc,setImageSrc]=useState([]);
 
-  const [ImgSrc,setImageSrc] =useFetchImage();
+ 
 
   const [inputData,setInputData]=useState("");
 
-  const scrollPosition =useScroll();
+  const [page, setPage] = useState(0);
+  const [ImgSrc,setImageSrc] =useFetchImage(page);
+
+  const scrollPosition = useScroll();
 
   useEffect (()=>{
  
@@ -59,8 +62,6 @@ inputRef.current.focus();
   <>
     <section className="input-section-wrapper">
 
-    {scrollPosition}
-
     <input type="text"
      ref={inputRef}
      placeholder="enter the URL of the images"
@@ -76,8 +77,11 @@ inputRef.current.focus();
       {ImgSrc.map((data,index)=> <Image imageSource={data.urls.regular} 
       handleDelete={handleDelete} key={index} id={index} index={index} />)}
       </section>
+
+     
       
     </div>
+    <button onClick={()=>setPage(page+1)}>Load more...</button>
     </>
   )
 }

@@ -5,7 +5,9 @@ export default function useScroll() {
 
 function handleScroll()
 {
+    // setScrollPosition(window.sc);
     setScrollPosition(window.scrollY);
+    console.log(scrollPosition);
     
 }
 
