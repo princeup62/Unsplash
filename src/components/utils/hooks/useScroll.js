@@ -7,8 +7,8 @@ function handleScroll()
 {
     // setScrollPosition(window.sc);
     setScrollPosition(window.scrollY);
-    console.log(scrollPosition);
-    
+    // console.log(scrollPosition);
+
 }
 
 

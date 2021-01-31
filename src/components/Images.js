@@ -4,6 +4,7 @@ import React,{useEffect, useState,useRef} from 'react'
 import Image from './Image';
 import useFetchImage from './utils/hooks/useFetchImage';
 import useScroll from './utils/hooks/useScroll';
+import Spinner from '../assets/spinner.gif';
 
  function Images() {
 
@@ -15,8 +16,9 @@ import useScroll from './utils/hooks/useScroll';
 
   const [inputData,setInputData]=useState("");
 
-  const [page, setPage] = useState(0);
-  const [ImgSrc,setImageSrc] =useFetchImage(page);
+  const [page, setPage] = useState(201);
+
+  const [ImgSrc,setImageSrc,isLoading] =useFetchImage(page);
 
   const scrollPosition = useScroll();
 
@@ -60,28 +62,32 @@ inputRef.current.focus();
 
 
   <>
-    <section className="input-section-wrapper">
 
+  {
+    isLoading?<div className="loading-outer-wrapper"><img src={Spinner}/></div>
+    :
+    <><section className="input-section-wrapper">
+    
+    
     <input type="text"
-     ref={inputRef}
-     placeholder="enter the URL of the images"
-     value={inputData}
-     onChange={handleInputChange}/>
-    <button onClick={handleSubmit}>Submit</button>
-    </section>
-
-    <div className="all-content-cover">  
-
+    ref={inputRef}
+    placeholder="enter the URL of the images"
+    value={inputData}
+    onChange={handleInputChange}/>
+   <button onClick={handleSubmit}>Submit</button>
+   </section>
+   <div className="all-content-cover">  
 
       <section className="Image-map-wrapper">
       {ImgSrc.map((data,index)=> <Image imageSource={data.urls.regular} 
       handleDelete={handleDelete} key={index} id={index} index={index} />)}
       </section>
-
-     
-      
+    
     </div>
     <button onClick={()=>setPage(page+1)}>Load more...</button>
+    </>
+  }
+      
     </>
   )
 }
